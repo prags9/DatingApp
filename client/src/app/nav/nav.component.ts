@@ -20,11 +20,12 @@ model: any = {}
   ngOnInit(): void {
   }
 
-  login(){
-    this.accountService.login(this.model).subscribe(response => {
-      this.router.navigateByUrl('/members');
-    });   
-    
+  login(){     
+    this.accountService.login(this.model).subscribe({
+      next: response => {
+        this.router.navigateByUrl('/members');
+      }
+    });
   }
 
   logout(){

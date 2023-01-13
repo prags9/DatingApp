@@ -20,7 +20,7 @@ namespace API.Services
 
         public string CreateToken(AppUser user)
         {
-            //1. Identify wat claims we can put in this token.
+            //1. Identify what claims we can put in this token.
             var claims = new List<Claim>{
                 new Claim(JwtRegisteredClaimNames.NameId, user.UserName)
             };
@@ -28,7 +28,7 @@ namespace API.Services
             //Credentials
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
-            //Describe out token (Token descriptor)
+            //Describe our token (Token descriptor)
             var tokenDescriptor = new SecurityTokenDescriptor{
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(7),
